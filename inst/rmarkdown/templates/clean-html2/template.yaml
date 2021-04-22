@@ -1,0 +1,4 @@
+name: Clean html2
+description: >
+   A html rmarkdown for reports for papers
+create_dir: FALSE

@@ -1,0 +1,196 @@
+---
+title: "The Title"
+subtitle: 
+author: ""
+date: "`r Sys.Date()`"
+output: 
+  bookdown::beamer_presentation2:
+    keep_tex: yes
+    theme: metropolis
+    latex_engine: xelatex
+    slide_level: 2
+    incremental: no
+    toc: no
+    includes: 
+      in_header: latex/top-matter.tex
+classoption: aspectratio=169
+fontsize: 12pt
+---
+
+
+
+```{r setup, include=FALSE, cache=FALSE}
+knitr::opts_chunk$set(tidy = "styler",
+                      cache=FALSE)
+options(
+  htmltools.dir.version = FALSE,
+  formatR.indent = 2,
+  width = 55,
+  digits = 2,
+  signif =2,
+  warnPartialMatchAttr = FALSE,
+  warnPartialMatchDollar = FALSE,
+  # Don't use scientific notation:
+  scipen=10000,
+  # tibbles:
+  tibble.width = Inf, #print all the columns!
+  tibble.print_max = 5 ,
+  tibble.print_min = 5
+)
+ggplot2::theme_set(ggplot2::theme_light())
+
+## Reduces the size of the font in code
+## https://stackoverflow.com/questions/25646333/code-chunk-font-size-in-rmarkdown-with-knitr-and-latex
+def.chunk.hook  <- knitr::knit_hooks$get("chunk")
+knitr::knit_hooks$set(chunk = function(x, options) {
+  x <- def.chunk.hook(x, options)
+  ifelse(options$size != "normalsize", paste0("\n \\", options$size,"\n\n", x, "\n\n \\normalsize"), x)
+})
+
+## Shows some lines of the output
+#https://community.rstudio.com/t/showing-only-the-first-few-lines-of-the-results-of-a-code-chunk/6963
+hook_output <- knitr::knit_hooks$get("output")
+knitr::knit_hooks$set(output = function(x, options) {
+  lines <- options$output_lines
+  if (is.null(lines)) {
+    return(hook_output(x, options))  # pass to default hook
+  }
+  out <- unlist(strsplit(x, "\n"))
+  more <- "..."
+  if (length(lines)==1) {        # first n lines
+    if (length(out) > lines) {
+      # truncate the output, but add ....
+      x <- c(head(out, lines), more)
+    }
+  } else {
+     if(lines[1] > 1) {
+      x <- c(more, out[lines])
+     } else {
+      x <- c(out[lines])  
+     }
+    if(lines[2] < length(out)){
+      x <- c(x, more)
+    }
+  }
+  # paste these lines together
+  x <- paste(c(x, ""), collapse = "\n")
+  hook_output(x, options)
+})
+```
+
+# First Section
+
+## First slide with a figure
+
+(ref:net) Real-time community detection in full social networks on a laptop
+Chamberlain BP, Levy-Kramer J, Humby C, Deisenroth MP (2018) Real-time community detection in full social networks on a laptop. PLOS ONE 13(1): e0188702. https://doi.org/10.1371/journal.pone.0188702
+
+```{r fig,fig.cap = "(ref:net)", echo = FALSE, cache = TRUE, out.width = "70%"}
+knitr::include_graphics("myfigs/journal.pone.0188702.g015.PNG")
+```
+
+## Second slide with columns
+
+\Begin{columns}
+\Begin{column}{0.45\textwidth}
+
+First column
+
+\End{column}
+\Begin{column}{0.45\textwidth}
+
+Second column
+
+\End{column}
+\End{columns}
+
+## Another way to use columns
+
+:::::: {.columns}
+::: {.column width="50%"}
+### Left
+abc
+:::
+::: {.column width="50%"}
+### Right
+def
+:::
+::::::
+
+## Slides with text on the top {.t}
+
+Text
+
+## Slides with tikz stuff
+
+Optionally `code=readLines("graph.tex")` can be used.
+
+```{tikz graph, fig.cap = "Author: Jean-Noël Quintin, retrieved from https://texample.net/tikz/examples/complete-graph/", fig.ext = 'png', cache = FALSE, echo = FALSE}
+\newcount\mycount
+
+\begin{tikzpicture}[transform shape]
+  %the multiplication with floats is not possible. Thus I split the loop in two.
+  \foreach \number in {1,...,8}{
+      % Computer angle:
+        \mycount=\number
+        \advance\mycount by -1
+  \multiply\mycount by 45
+        \advance\mycount by 0
+      \node[draw,circle,inner sep=0.25cm] (N-\number) at (\the\mycount:5.4cm) {};
+    }
+  \foreach \number in {9,...,16}{
+      % Computer angle:
+        \mycount=\number
+        \advance\mycount by -1
+  \multiply\mycount by 45
+        \advance\mycount by 22.5
+      \node[draw,circle,inner sep=0.25cm] (N-\number) at (\the\mycount:5.4cm) {};
+    }
+  \foreach \number in {1,...,15}{
+        \mycount=\number
+        \advance\mycount by 1
+  \foreach \numbera in {\the\mycount,...,16}{
+    \path (N-\number) edge[->,bend right=3] (N-\numbera)  edge[<-,bend
+      left=3] (N-\numbera);
+  }
+}
+\end{tikzpicture}
+```
+
+
+
+## Slides with overlays
+
+`r knitr::raw_latex("\\only<1>{")`
+**First this**
+`r knitr::raw_latex("}")`
+
+`r knitr::raw_latex("\\only<2>{")`
+**Then this**
+`r knitr::raw_latex("}")`
+
+
+## Slides with code
+
+Normal size code
+
+```{r}
+1+3
+```
+
+"Scriptsize" size code below ` ```{r, size = "scriptsize"} `
+
+```{r, size = "scriptsize"}
+1+3
+```
+
+## Slides with code
+
+Show the first 3 lines of output with ` ```{r, output_lines = 3}` (one can also use `2:4` for intermediate lines)
+
+```{r, output_lines = 3}
+for(i in 1:1000){
+  print(i)
+}
+```
+

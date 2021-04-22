@@ -1,0 +1,33 @@
+---
+title: ""
+author: ""
+date: "`r Sys.Date()`"
+output:
+  bookdown::html_document2:
+    highlight: kate
+bibliography      : ["r-references.bib"]
+---
+
+```{r setup, include = FALSE}
+papaja::r_refs("r-references.bib")
+
+## Global options
+options(max.print="75",
+        width = 80,
+        tibble.width = 80)
+knitr::opts_chunk$set(echo=FALSE,
+	             cache=TRUE,
+               prompt=FALSE,
+               tidy=TRUE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE)
+knitr::opts_knit$set(width=80)
+knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
+set.seed(42)
+```
+
+# Intro
+
+## Data analysis
+We used `r papaja::cite_r("r-references.bib")` for all our analyses.

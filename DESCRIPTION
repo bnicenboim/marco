@@ -1,11 +1,11 @@
 Package: simplermd
-Title: What the Package Does (One Line, Title Case)
+Title: Simple Rmds
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Bruno",
+           family = "Nicenboim",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
+           email = "bruno.nicenboim@gmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
