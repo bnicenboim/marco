@@ -1,5 +1,5 @@
-Package: simplermd
-Title: Simple Rmds
+Package: marco
+Title: Simple templates for rmarkdown
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Bruno",
