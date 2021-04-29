@@ -1,0 +1,4 @@
+name: Clean pdf2
+description: >
+   A very simple pdf rmarkdown
+create_dir: FALSE
