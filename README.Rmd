@@ -67,20 +67,24 @@ If `polymode` is installed you should be able to use `poly-r-rmarkdown-create-fr
 
 ### Otherwise
 
-Use the `rmarkdown::render` function to create presentations:
+Use the `rmarkdown::render` function to create templates.
 
-~~~{r}
+For metropolis presentations:
+
+```{r,eval = FALSE}
 # Create new R Markdown file
 rmarkdown::draft(
   "slides.Rmd"
-  , "metropolis-presentation"
+  , template =  "metropolis-presentation"
   , package = "marco"
   , create_dir = FALSE
   , edit = FALSE
 )
 # Render manuscript
 rmarkdown::render("slides.Rmd")
-~~~
+```
+
+For the other templates, `template` should be `"clean-html2"` or `"clean-pdf2"`.
 
 ### Other useful rmarkdown packages:
 - [papaja](https://github.com/crsh/papaja): APA articles. (Also credit to F. Aust for the installation instructions here).

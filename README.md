@@ -75,13 +75,15 @@ If `polymode` is installed you should be able to use
 
 ### Otherwise
 
-Use the `rmarkdown::render` function to create presentations:
+Use the `rmarkdown::render` function to create templates.
 
-``` {r}
+For metropolis presentations:
+
+``` r
 # Create new R Markdown file
 rmarkdown::draft(
   "slides.Rmd"
-  , "metropolis-presentation"
+  , template =  "metropolis-presentation"
   , package = "marco"
   , create_dir = FALSE
   , edit = FALSE
@@ -89,6 +91,9 @@ rmarkdown::draft(
 # Render manuscript
 rmarkdown::render("slides.Rmd")
 ```
+
+For the other templates, `template` should be `"clean-html2"` or
+`"clean-pdf2"`.
 
 ### Other useful rmarkdown packages:
 
