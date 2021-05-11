@@ -12,9 +12,9 @@ status](https://www.r-pkg.org/badges/version/simplermd)](https://CRAN.R-project.
 <!-- badges: end -->
 
 The goal of `marco` is to provide templates for some of the Rmarkdown
-documents that I find useful, and this powered by
-[bookdown](https://bookdown.org/yihui/bookdown/). `bookdown` allows for
-all sort of nice things, like cross-references and captions.
+documents that I find useful. The Rmarkdown is powered by
+[bookdown](https://bookdown.org/yihui/bookdown/) which allows for all
+sort of nice things, like cross-references and captions.
 
 ## The templates
 
