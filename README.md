@@ -18,7 +18,7 @@ sort of nice things, like cross-references and captions.
 
 ## The templates
 
-### Metropolis presentation
+### `Metropolis presentation`
 
 The most complete template is the one for creating a (LaTeX) [beamer
 metropolis presentation](https://github.com/matze/mtheme) in Rmarkdown
@@ -26,11 +26,11 @@ powered by `bookdown::beamer_presentation2`. This template just
 exemplifies all the things I tend to use and forget how to do: multiple
 columns, scaled figures, hooks for having code of different sizes, etc.
 
-### Clean html2
+### `Clean html2`
 
 Just a clean `bookdown::htm_document2`.
 
-### Clean pdf2
+### `Clean pdf2`
 
 Just a clean `bookdown::pdf_document2`.
 
