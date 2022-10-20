@@ -1,4 +1,4 @@
 name: Metropolis presentation
 description: >
    A pdf presentation using the Beamer template Metropolis
-create_dir: FALSE
+create_dir: false

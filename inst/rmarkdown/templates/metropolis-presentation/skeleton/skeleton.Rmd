@@ -4,15 +4,11 @@ subtitle:
 author: ""
 date: "`r Sys.Date()`"
 output: 
-  bookdown::beamer_presentation2:
+  marco::beamer_metropolis:
     keep_tex: yes
-    theme: metropolis
-    latex_engine: xelatex
     slide_level: 2
     incremental: no
     toc: no
-    includes: 
-      in_header: latex/top-matter.tex
 classoption: aspectratio=169
 fontsize: 12pt
 ---
@@ -86,7 +82,7 @@ knitr::knit_hooks$set(output = function(x, options) {
 Chamberlain BP, Levy-Kramer J, Humby C, Deisenroth MP (2018) Real-time community detection in full social networks on a laptop. PLOS ONE 13(1): e0188702. https://doi.org/10.1371/journal.pone.0188702
 
 ```{r fig,fig.cap = "(ref:net)", echo = FALSE, cache = TRUE, out.width = "70%"}
-knitr::include_graphics("myfigs/journal.pone.0188702.g015.PNG")
+knitr::include_graphics("journal.pone.0188702.g015.PNG")
 ```
 
 ## Second slide with columns
