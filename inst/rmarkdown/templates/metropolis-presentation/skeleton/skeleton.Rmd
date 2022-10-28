@@ -13,7 +13,7 @@ classoption: aspectratio=169
 fontsize: 12pt
 ---
 
-
+https://bookdown.org/yihui/rmarkdown/new-formats.html
 
 ```{r setup, include=FALSE, cache=FALSE}
 knitr::opts_chunk$set(tidy = "styler",
@@ -164,6 +164,14 @@ Optionally `code=readLines("graph.tex")` can be used.
 `r knitr::raw_latex("\\only<2>{")`
 **Then this**
 `r knitr::raw_latex("}")`
+
+## Slides that increment bullets
+
+>- First thing.
+>- Second thing.
+>     - Nested thing. (Mind the spaces!)
+>     - Nested thing. (Mind the spaces!)
+
 
 
 ## Slides with code
