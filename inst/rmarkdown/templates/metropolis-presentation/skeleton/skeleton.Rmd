@@ -1,6 +1,6 @@
 ---
 title: "The Title"
-subtitle: 
+subtitle: ""
 author: ""
 date: "`r Sys.Date()`"
 output: 
@@ -78,11 +78,12 @@ knitr::knit_hooks$set(output = function(x, options) {
 
 ## First slide with a figure
 
-(ref:net) Real-time community detection in full social networks on a laptop
-Chamberlain BP, Levy-Kramer J, Humby C, Deisenroth MP (2018) Real-time community detection in full social networks on a laptop. PLOS ONE 13(1): e0188702. https://doi.org/10.1371/journal.pone.0188702
+(ref:net) Image created with Stable Diffusion (https://huggingface.co/spaces/stabilityai/stable-diffusion). The model is licensed with a [CreativeML Open RAIL-M license](https://huggingface.co/spaces/CompVis/stable-diffusion-license).
 
-```{r fig,fig.cap = "(ref:net)", echo = FALSE, cache = TRUE, out.width = "70%"}
-knitr::include_graphics("journal.pone.0188702.g015.PNG")
+```{r fig,fig.cap = "(ref:net)", echo = FALSE, cache = TRUE, out.heigth = "50%"}
+knitr::include_graphics(system.file("images",
+                      "example.jpeg",
+                      package = "marco"))
 ```
 
 ## Second slide with columns
@@ -198,3 +199,16 @@ for(i in 1:1000){
 }
 ```
 
+## Add an emoji
+
+Use an emoji like `r marco::emoji("face")` with ` `r marco::emoji("face")` `.
+
+
+
+
+## More information
+
+https://pandoc.org/MANUAL.html#frame-attributes-in-beamer
+
+
+# References {.allowframebreaks}

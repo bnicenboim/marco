@@ -1,5 +1,3 @@
-
-
 #' Metropolis (beamer) presentation with sensible defaults.
 #' 
 #' Wrapper for [bookdown::beamer_presentation2] with sensible defaults.
