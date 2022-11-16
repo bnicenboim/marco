@@ -9,11 +9,12 @@ output:
     slide_level: 2
     incremental: no
     toc: no
+bibliography: packages.bib
 classoption: aspectratio=169
 fontsize: 12pt
 ---
 
-https://bookdown.org/yihui/rmarkdown/new-formats.html
+<!-- https://bookdown.org/yihui/rmarkdown/new-formats.html -->
 
 ```{r setup, include=FALSE, cache=FALSE}
 knitr::opts_chunk$set(tidy = "styler",
@@ -74,13 +75,19 @@ knitr::knit_hooks$set(output = function(x, options) {
 })
 ```
 
+```{r, echo = FALSE, warning=FALSE}
+knitr::write_bib(c("emo","marco","base"),file = "packages.bib")
+```
+
 # First Section
 
-## First slide with a figure
+## First slide with a figure and a caption
 
-(ref:net) Image created with Stable Diffusion (https://huggingface.co/spaces/stabilityai/stable-diffusion). The model is licensed with a [CreativeML Open RAIL-M license](https://huggingface.co/spaces/CompVis/stable-diffusion-license).
+Refer to the figure \@ref(fig:sd).
 
-```{r fig,fig.cap = "(ref:net)", echo = FALSE, cache = TRUE, out.heigth = "50%"}
+(ref:sd) Image created with Stable Diffusion (https://huggingface.co/spaces/stabilityai/stable-diffusion). The model is licensed with a [CreativeML Open RAIL-M license](https://huggingface.co/spaces/CompVis/stable-diffusion-license).
+
+```{r sd,fig.cap = "(ref:sd)", echo = FALSE, cache = TRUE, out.height = "50%", out.width = "50%"}
 knitr::include_graphics(system.file("images",
                       "example.jpeg",
                       package = "marco"))
@@ -114,15 +121,34 @@ def
 :::
 ::::::
 
+## Yet another way to have columns
+
+``` {=latex}
+\begin{columns}
+\begin{column}{0.45\textwidth}
+```
+First column
+
+``` {=latex}
+\end{column}
+\begin{column}{0.45\textwidth}
+```
+Second column
+``` {=latex}
+\end{column}
+\end{columns}
+```
+
+
 ## Slides with text on the top {.t}
 
 Text
 
 ## Slides with tikz stuff
 
-Optionally `code=readLines("graph.tex")` can be used.
+<!-- Optionally `code=readLines("graph.tex")` can be used. -->
 
-```{tikz graph, fig.cap = "Author: Jean-Noël Quintin, retrieved from https://texample.net/tikz/examples/complete-graph/", fig.ext = 'png', cache = FALSE, echo = FALSE}
+```{tikz graph, fig.cap = "Author: Jean-Noël Quintin, retrieved from https://texample.net/tikz/examples/complete-graph/", fig.ext = 'png', cache = FALSE, echo = FALSE, out.height ="70%"}
 \newcount\mycount
 
 \begin{tikzpicture}[transform shape]
@@ -183,7 +209,7 @@ Normal size code
 1+3
 ```
 
-"Scriptsize" size code below ` ```{r, size = "scriptsize"} `
+"Scriptsize" size code below. 
 
 ```{r, size = "scriptsize"}
 1+3
@@ -191,7 +217,9 @@ Normal size code
 
 ## Slides with code
 
-Show the first 3 lines of output with ` ```{r, output_lines = 3}` (one can also use `2:4` for intermediate lines)
+Show the first 3 lines of the output:
+
+ <!-- (one can also use `2:4` for intermediate lines) -->
 
 ```{r, output_lines = 3}
 for(i in 1:1000){
@@ -201,14 +229,16 @@ for(i in 1:1000){
 
 ## Add an emoji
 
-Use an emoji like `r marco::emoji("face")` with ` `r marco::emoji("face")` `.
-
-
+Use an emoji like `r marco::emoji("face")`.
 
 
 ## More information
 
 https://pandoc.org/MANUAL.html#frame-attributes-in-beamer
 
+## Citations
 
-# References {.allowframebreaks}
+Please cite @R-marco and @R-base [and @R-emo if relevant]. 
+
+## References {.allowframebreaks}
+
